@@ -4,7 +4,7 @@ import pprint
 
 from cadCAD.configuration.utils import env_trigger, var_substep_trigger, config_sim, time_step, psub_list
 
-from typing import Dict, List
+from typing import Dict, List, Any
 
 from simulations.regression_tests.experiments import sweep_exp
 
@@ -18,10 +18,8 @@ seeds = {
 }
 
 # Optional
-g: Dict[str, List[int]] = {
+g: Dict[str, List[Any]] = {
     'alpha': [1],
-    # 'beta': [2],
-    # 'gamma': [3],
     'beta': [2, 5],
     'gamma': [3, 4],
     'omega': [7]
@@ -145,10 +143,3 @@ sweep_exp.append_configs(
     env_processes=env_process,
     partial_state_update_blocks=partial_state_update_blocks
 )
-
-
-# print()
-# print("Partial State Update Block:")
-# pp.pprint(partial_state_update_blocks)
-# print()
-# print()
